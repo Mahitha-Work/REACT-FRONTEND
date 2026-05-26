@@ -108,8 +108,10 @@ if (MEDIUM_USERNAME !== undefined) {
 
     console.log(`statusCode: ${res.statusCode}`);
     if (res.statusCode !== 200) {
-      throw new Error(ERR.requestMediumFailed);
-    }
+      console.warn("⚠️ Warning: Failed to fetch Medium blogs. Skipping...");
+  // Instead of throwing an error, write an empty array to the file so the build continues
+  fs.writeFileSync('public/blogs.json', JSON.stringify([])); 
+};
 
     res.on("data", d => {
       mediumData += d;
