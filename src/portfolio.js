@@ -44,6 +44,11 @@ const socialMediaLinks = {
   // To customize icons and social links, tweak src/components/SocialMedia
   display: false // Set true to display this section, defaults to false
 };
+// Twitter Section - UPDATED TO PREVENT THE document.getElementById CRASH
+const twitterDetails = {
+  userName: "", // REMOVE THE WORD "twitter" AND LEAVE IT EMPTY
+  display: false // CHANGE THIS TO false TO DISABLE THE BROKEN WIDGET SCRIPT
+};
 
 // Skills Section
 
@@ -309,7 +314,7 @@ const blogSection = {
   title: "Blogs",
   subtitle:
     "With Love for Developing cool stuff, I love to write and teach others what I have learnt.",
-  displayMediumBlogs: "true", // Set true to display fetched medium blogs instead of hardcoded ones
+  displayMediumBlogs: false, // Set true to display fetched medium blogs instead of hardcoded ones
   blogs: [
     {
       url: "https://blog.usejournal.com/create-a-google-assistant-action-and-win-a-google-t-shirt-and-cloud-credits-4a8d86d76eae",
