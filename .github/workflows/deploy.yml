@@ -33,3 +33,10 @@ jobs:
           npm run build
     
          
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # The exact command to push your prebuilt assets to Pages
+          command: pages deploy dist --project-name="react-frontend-app"
