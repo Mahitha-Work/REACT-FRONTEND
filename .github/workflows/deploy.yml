@@ -7,6 +7,9 @@ env:
   MEDIUM_USERNAME: "Mahitha-Work" # Change this to your medium username
 on:
   workflow_dispatch:
+  push: 
+    branches: master
+    
    # see https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events
 jobs:
   build-and-deploy:
