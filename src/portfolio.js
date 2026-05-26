@@ -44,11 +44,6 @@ const socialMediaLinks = {
   // To customize icons and social links, tweak src/components/SocialMedia
   display: false // Set true to display this section, defaults to false
 };
-// Twitter Section - UPDATED TO PREVENT THE document.getElementById CRASH
-const twitterDetails = {
-  userName: "", // REMOVE THE WORD "twitter" AND LEAVE IT EMPTY
-  display: false // CHANGE THIS TO false TO DISABLE THE BROKEN WIDGET SCRIPT
-};
 
 // Skills Section
 
@@ -384,8 +379,8 @@ const contactInfo = {
 // Twitter Section
 
 const twitterDetails = {
-  userName: "twitter", //Replace "twitter" with your twitter username without @
-  display: true // Set true to display this section, defaults to false
+  userName: "", //Replace "twitter" with your twitter username without @
+  display: false // Set true to display this section, defaults to false
 };
 
 const isHireable = false; // Set false if you are not looking for a job. Also isHireable will be display as Open for opportunities: Yes/No in the GitHub footer
