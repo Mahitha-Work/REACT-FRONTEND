@@ -25,6 +25,25 @@ jobs:
         with:
           node-version: 18.x
 
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+                   sudo mkdir -p /var/www/sample-frontend
+      - name: Copy Frontend
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "./frontend/platforms/web/dist/*"
+          target: "/var/www/vivn-frontend"
+          strip_components: 4
+            
+
       
 
       - name: Install and Build 🔧 # Build the Project
