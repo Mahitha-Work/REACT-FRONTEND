@@ -24,7 +24,12 @@ jobs:
         uses: actions/setup-node@v3.8.1
         with:
           node-version: 18.x
-
+      
+      - name: Install and Build 🔧 # Build the Project
+        run: |
+          npm install --legacy-peer-deps
+          npm run build
+    
       - name: Deploy via SSH
         uses: appleboy/ssh-action@master
         with:
@@ -33,6 +38,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
                    sudo mkdir -p /var/www/sample-frontend
+                   sudo chown -R azureuser:azureuser /var/www/sample-frontend
+                   sudo chmod -R 755 /var/www/sample-frontend
+
+    
       - name: Copy Frontend
         uses: appleboy/scp-action@master
         with:
@@ -44,12 +53,4 @@ jobs:
           strip_components: 4
             
 
-      
-
-      - name: Install and Build 🔧 # Build the Project
-        run: |
-          npm install --legacy-peer-deps
-          npm run build
-    
-         
       
