@@ -48,9 +48,9 @@ jobs:
           host: ${{ secrets.VM_IP }}
           username: ${{ secrets.VM_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "./frontend/platforms/web/dist/*"
-          target: "/var/www/vivn-frontend"
-          strip_components: 4
+          source: "/dist/*"
+          target: "/var/www/sample-frontend"
+          strip_components: 1
             
 
       
