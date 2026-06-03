@@ -48,9 +48,13 @@ jobs:
           host: ${{ secrets.VM_IP }}
           username: ${{ secrets.VM_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          source: "/dist/*"
+          source: "/build/*"
           target: "/var/www/sample-frontend"
           strip_components: 1
+
+      - run: sudo systemctl restart nginx
+
+      
             
 
       
